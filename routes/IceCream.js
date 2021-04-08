@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('IceCream', { title: 'Search Results' });
-});
+const icecream_controlers= require('../controllers/icecream');
 
+/* GET home page. */
+router.get('/', icecream_controlers.icecream_view_all_Page );
 module.exports = router;
