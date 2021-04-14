@@ -10,3 +10,28 @@ a {
   background-color: aquamarine;
   width: 120px;
 }
+#himsTitle{
+  color: #38ddac;
+  font-weight: 680;
+  font-family:'Times New Roman', Times, serif;
+  text-decoration:solid;
+}
+
+.item{
+  margin-right: 3px;
+  padding: 10px;
+  justify-content:center;
+  font-weight:200;
+  border-bottom: 2px solid rgb(212, 105, 171);
+  border-left: 1.5px solid rgb(18, 95, 44);
+  background-color: rgb(180, 151, 233);
+  border-radius: 2px;
+}
+.hims{
+    /* border-top: 1.8px solid rgb(238, 99, 99); */
+    width: 30%;
+}
+.item:hover{
+  background-color: rgb(235, 233, 160);
+  color: rgb(4, 2, 24);
+}

@@ -1,22 +1,22 @@
 extends layout
 
 block content
-  h1= title
+  h1(id='himsTitle')= title
 
   - let icecreamid = toShow._id
-  - let icecreamBrand = toShow.icecreamBrand
+  - let icecreamBrand = toShow.Brand
   - let icecreamFlavour = toShow.Flavour
   - let icecreamCost = toShow.Cost
   div
     div.row
       div(class='icecreamAttr mr-3') icecream ID is:
-      div #{icecreamid}
+      div(class='item hims') #{icecreamid}
     div.row
       div(class='icecreamAttr mr-3') icecream Brand is:
-      div #{icecreamBrand}
+      div(class='item') #{icecreamBrand}
     div.row
       div(class='icecreamAttr mr-3') icecream Flavour is:
-      div #{icecreamFlavour}
+      div(class='item') #{icecreamFlavour}
     div.row
       div(class='icecreamAttr mr-3') icecream Cost is:
-      div #{icecreamCost}
+      div(class='item') #{icecreamCost}
