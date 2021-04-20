@@ -2,13 +2,16 @@ extends layout
 
 block content
   h1= title
+  if (toShow == null)
+    h2 No instance to delete 
+  else
 
-  - let icecreamid = toShow._id
-  - let icecreamBrand = toShow.Brand
-  - let icecreamFlavour = toShow.Flavour
-  - let icecreamCost = toShow.Cost
+   - let icecreamid = toShow._id
+   - let icecreamBrand = toShow.Brand
+   - let icecreamFlavour = toShow.Flavour
+   - let icecreamCost = toShow.Cost
   
-  div.row(class='mb-2')
+   div.row(class='mb-2')
     div.mr-1 ID is
     div #{icecreamid}
   - let actionid = "/resource/resource/icecreams/" + icecreamid
@@ -27,6 +30,7 @@ block content
   script.
     document.forms['icecreamForm'].addEventListener('submit', (event) => {
       event.preventDefault();
+      // console.log(event.target);
       // TODO do something here to show user that form is being submitted
       fetch(event.target.action, {
         method: 'PUT',

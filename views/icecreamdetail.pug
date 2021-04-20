@@ -2,12 +2,16 @@ extends layout
 
 block content
   h1(id='himsTitle')= title
+  
+  if (toShow == null)
+    h2 No instance to delete
+  else
 
-  - let icecreamid = toShow._id
-  - let icecreamBrand = toShow.Brand
-  - let icecreamFlavour = toShow.Flavour
-  - let icecreamCost = toShow.Cost
-  div
+   - let icecreamid = toShow._id
+   - let icecreamBrand = toShow.Brand
+   - let icecreamFlavour = toShow.Flavour
+   - let icecreamCost = toShow.Cost
+    div
     div.row
       div(class='icecreamAttr mr-3') icecream ID is:
       div(class='item hims') #{icecreamid}

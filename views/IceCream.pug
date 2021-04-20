@@ -1,16 +1,18 @@
 extends layout
 
 block content
-  div(class="container-fluid")
   h1= title
-  -var result=results 
-  div(class="row")
-    each op,index in result
-        div(class = "col-sm-2 bg-success" onclick=`buy(${index})`) #{op.Brand}
-        div(class = "col-sm-2 bg-success" onclick=`buy(${index})`) #{op.Flavour}
-        div(class = "col-sm-2 bg-success" onclick=`buy(${index})`) #{op.Cost}
+  - let icecreames=results
+  div(class="container-fluid")
+  div(class="row m-1")
+    each icecream,index in icecreames
+      - let destination = `dispatch(\"/icecream/update?id=${icecream._id}\")`
+        div(class="col-sm-4  m-1" style=("font-weight:bolder")) #{icecream.Brand} - #{icecream.Flavour} - #{icecream.Cost}
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
-     
+      function dispatch(path){
+      window.location.href=path
+      }
       function buy(itemNo)
       {
         alert(`You purchased Item ${itemNo+1}`)
