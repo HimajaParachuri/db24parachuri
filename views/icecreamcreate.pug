@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1= title
+  div#err(style:{display:block;}) 
 
   form(id='icecreamForm', action="/resource/resource/icecreams", method="POST")
     div.form-group
@@ -23,9 +24,15 @@ block content
         method: 'POST',
         body: new URLSearchParams(new FormData(event.target)) // event.target is the form
       }).then((resp) => {
+        document.getElementById("err").style.display="block"
         return resp.json(); // or resp.text() or whatever the server sends
       }).then((body) => {
-        alert("Save succeded")
+        if(body.name){
+          document.getElementById("err").innerHTML=`${body.name}  \n ${body.message}\n`;
+          alert("Save Failed")
+        }else{
+           alert("Save succeded")
+        }
         // TODO handle body
       }).catch((error) => {
         // TODO handle error

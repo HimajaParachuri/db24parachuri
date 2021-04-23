@@ -1,13 +1,12 @@
+//- 
 extends layout
-
 block content
-  h1= title
-  p Welcome, #{title}
-  button(Type="button", class="btn btn-primary btn-lg" onclick="update()") Press me
-  div(id="target" class="container text-center m-2 p-3" style="color:blue;font-weight:650; background-color:lightblue;") Display
-  script. 
-      var client_count=0 
-      function update(){
-        client_count++;
-        document.getElementById("target").innerHTML=`Value now ${client_count}`
-      } 
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/IceCream") Take me to icecreams
+    br
+    a(href="/logout") Logout

@@ -34,17 +34,17 @@ var resourceRouter = require('./routes/resource');
 async function recreateDB() {
   // Delete everything
   await icecream.deleteMany();
-  let instance1 = new icecream({Brand :"Vadilal",Flavour:"Vanilla",Cost:7.65});
+  let instance1 = new icecream({Brand :"Vadilal",Flavour:"Vanilla",Cost:67.65});
   instance1.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("First object saved")
   });
-  let instance2 = new icecream({ Brand:"Creambell",Flavour:"Chocolate",Cost:10.76});
+  let instance2 = new icecream({ Brand:"Creambell",Flavour:"Chocolate",Cost:70.76});
   instance2.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Second object saved")
   });
-  let instance3 = new icecream({ Brand:"Hico",Flavour:"Strawberry",Cost:12.65});
+  let instance3 = new icecream({ Brand:"Hico",Flavour:"Strawberry",Cost:82.65});
   instance3.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Third object saved")

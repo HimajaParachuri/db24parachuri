@@ -33,13 +33,13 @@ exports.icecream_create_post = async function (req, res) {
     // {{Brand :"Vadilal",Flavour:"Vanilla",Flavour:7.65}
     document.Brand = req.body.Brand;
     document.Flavour = req.body.Flavour;
-    document.Flavour = req.body.Flavour;
+    document.Cost = req.body.Cost;
     try {
         let result = await document.save();
         res.send(result);
     }
     catch (err) {
-        res.send(`{"error": ${err}}`)
+        res.send(err)
         res.status(500);
     }
 };
@@ -121,6 +121,7 @@ exports.icecream_update_Page =  async function(req, res) {
     console.log("update view for item "+req.query.id)
     try{
         let result = await icecream.findById(req.query.id)
+        console.log(result)
         res.render('icecreamupdate', { title: 'icecream Update', toShow: result });
     }
     catch(err){
@@ -134,6 +135,7 @@ exports.icecream_delete_Page = async function(req, res) {
     console.log("Delete view for id "  + req.query.id)
     try{
         result = await icecream.findById(req.query.id)
+       
         res.render('icecreamdelete', { title: 'icecream Delete', toShow: result });
     }
     catch(err){
